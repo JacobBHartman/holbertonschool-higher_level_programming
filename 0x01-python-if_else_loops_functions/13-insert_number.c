@@ -24,7 +24,7 @@ listint_t *insert_node(listint_t **head, int number)
 	breadcrumb = temp;
 	temp = temp->next;
 	breadcrumb->next = new_node;
-	new_node->next = temp;
+	breadcrumb->next->next = temp;
 
 	return(breadcrumb->next);
 }
