@@ -32,10 +32,11 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 	else
 	{
-		while (new_node->n > temp->next->n)
+		while (temp != NULL || new_node->n > temp->n)
+		{
+			breadcrumb = temp;
 			temp = temp->next;
-		breadcrumb = temp;
-		temp = temp->next;
+		}
 		breadcrumb->next = new_node;
 		breadcrumb->next->next = temp;
 		return (breadcrumb->next);
