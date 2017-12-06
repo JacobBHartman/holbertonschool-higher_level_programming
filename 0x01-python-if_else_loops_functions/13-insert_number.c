@@ -24,11 +24,28 @@ listint_t *insert_node(listint_t **head, int number)
 	new_node->n = number;
 	new_node->next = NULL;
 
+	/* check if the list is empty (*head == NULL) */
 	if (*head == NULL)
 	{
 		*head = new_node;
 		return (*head);
 	}
+	else
+	{
+		while (new_node->n > temp->next->n)
+			temp = temp->next;
+		breadcrumb = temp;
+		temp = temp->next;
+		breadcrumb->next = new_node;
+		breadcrumb->next->next = temp;
+		return (breadcrumb->next);
+	}
+
+
+/*
+
+
+
 	else if ((*head)->next == NULL)
 	{
 		if (new_node->n > (*head)->n)
@@ -54,4 +71,5 @@ listint_t *insert_node(listint_t **head, int number)
 		breadcrumb->next->next = temp;
 		return(breadcrumb->next);
 	}
+*/
 }
