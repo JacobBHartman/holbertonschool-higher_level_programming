@@ -19,7 +19,7 @@ listint_t *insert_node(listint_t **head, int number)
 	new_node->n = number;
 	new_node->next = NULL;
 
-	while (number > temp->next->n)
+	while (new_node->n >= temp->next->n)
 		temp = temp->next;
 	breadcrumb = temp;
 	temp = temp->next;
