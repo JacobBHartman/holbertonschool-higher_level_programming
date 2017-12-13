@@ -17,7 +17,7 @@ int is_palindrome(listint_t **head)
 		return (0);
 
 	if (*head == NULL)
-		return (0);
+		return (1);
 
 	/* initialize the positions of the bot pointer and crumb */
 	while (bot->next != NULL)
