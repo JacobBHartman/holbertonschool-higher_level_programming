@@ -13,16 +13,11 @@ def roman_to_int(roman_string):
     i = 0
     while i < lng:
         if i < lng - 1:
-            if rs[i] == 'I' and (rs[i+1] == 'X' or rs[i+1] == 'V'):
+            if dct[rs[i+1]] > dct[rs[i]]:
                 sum += dct[rs[i+1]] - dct[rs[i]]
                 i += 1
-                f1 = 1
-            elif rs[i] == 'X' and (rs[i+1] == 'L' or rs[i+1] == 'C'):
-                sum += dct[rs[i+1]] - dct[rs[i]]
-                i += 1
-            elif rs[i] == 'C' and (rs[i+1] == 'D' or rs[i+1] == 'M'):
-                sum += dct[rs[i+1]] - dct[rs[i]]
-                i += 1
+                if rs[i] == 'I' and (rs[i+1] == 'X' or rs[i+1] == 'V'):
+                    f1 = 1
             else:
                 sum += dct[rs[i]]
         else:
