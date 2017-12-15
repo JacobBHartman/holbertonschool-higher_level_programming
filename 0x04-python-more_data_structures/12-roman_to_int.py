@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+def roman_to_int(roman_string):
+    if roman_string is None:
+        return 0
+
+    sum = 0
+    rs = roman_string[:]
+    dct = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    lng = len(roman_string)
+    f1 = f10 = f100 = 0
+
+    for i in range(lng):
+        if i < lng - 1:
+            if rs[i] == 'I' and (rs[i+1] == 'X' or rs[i+1] == 'V'):
+                sum += dct[rs[i+1]] - dct[rs[i]]
+                i += 1
+                f1 = 1
+            elif rs[i] == 'X' and (rs[i+1] == 'L' or rs[i+1] == 'C'):
+                sum += dct[rs[i+1]] - dct[rs[i]]
+                i += 1
+                f2 = 1
+            elif rs[i] == 'C' and (rs[i+1] == 'D' or rs[i+1] == 'M'):
+                sum += dct[rs[i+1]] - dct[rs[i]]
+                i += 1
+                f3 = 1
+            else:
+                sum += dct[rs[i]]
+        else:
+            if f1 != 1 and f10 != 1 and f100 != 1:
+                sum += dct[rs[i]]
+
+    return sum
