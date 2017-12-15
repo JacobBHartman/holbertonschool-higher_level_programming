@@ -18,15 +18,13 @@ def roman_to_int(roman_string):
             elif rs[i] == 'X' and (rs[i+1] == 'L' or rs[i+1] == 'C'):
                 sum += dct[rs[i+1]] - dct[rs[i]]
                 i += 1
-                f2 = 1
             elif rs[i] == 'C' and (rs[i+1] == 'D' or rs[i+1] == 'M'):
                 sum += dct[rs[i+1]] - dct[rs[i]]
                 i += 1
-                f3 = 1
             else:
                 sum += dct[rs[i]]
         else:
-            if f1 != 1 and f10 != 1 and f100 != 1:
+            if f1 != 1:
                 sum += dct[rs[i]]
 
     return sum
