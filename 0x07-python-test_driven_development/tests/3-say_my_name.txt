@@ -1,0 +1,57 @@
+Module: ``3-say_my_name``
+===============
+
+print 'My name is <FIRST_NAME> <LAST_NAME>
+---------------
+
+
+""" import module.function """
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+""" documentation check """
+Check for module documentation
+      >>> d = __import__("3-say_my_name").__doc__
+      >>> len(d) > 1
+      True
+
+Check for function docmunetation
+      >>> d = __import__("3-say_my_name").say_my_name.__doc__
+      >>> len(d) > 1
+      True
+
+
+""" check for argument count """
+
+
+""" check for typical scenarios that should work """
+
+Check for typical input
+      >>> say_my_name("Jacob", "Hartman")
+      My name is Jacob Hartman
+
+      >>> say_my_name("1", "2")
+      My name is 1 2
+
+      >>> say_my_name("Jacob")
+      My name is Jacob 
+
+
+""" check for non-working cases """
+
+>>> say_my_name("Jacob", 2)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+
+>>> say_my_name(3, "Hartman")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+
+>>> say_my_name(10, 11)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string

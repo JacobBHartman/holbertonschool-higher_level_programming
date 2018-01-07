@@ -1,0 +1,64 @@
+Module: ``4-print_square.txt``
+===============
+
+Using ``print_square``
+---------------
+
+
+""" import module.function """
+>>> print_square = __import__('4-print_square').print_square
+
+
+""" documentation check """
+Check for module documentation
+      >>> d = __import__("4-print_square").__doc__
+      >>> len(d) > 1
+      True
+
+Check for function docmunetation
+      >>> d = __import__("4-print_square").print_square.__doc__
+      >>> len(d) > 1
+      True
+
+
+""" check for argument count """
+
+
+""" check for typical scenarios that should work """
+
+>>> print_square(3)
+###
+###
+###
+
+>>> print_square(4)
+####
+####
+####
+####
+
+>>> print_square(1)
+#
+
+>>> print_square(0)
+<BLANKLINE>
+
+
+""" check for non-working cases """
+
+>>> print_square(-5)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+
+>>> print_square("jacob")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+
+>>> print_square(j)
+Traceback (most recent call last):
+    ...
+NameError: name 'j' is not defined
