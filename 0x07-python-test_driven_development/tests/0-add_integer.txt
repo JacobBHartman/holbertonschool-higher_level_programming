@@ -1,0 +1,29 @@
+testing file for ``def add_integer(a, b)``
+===============
+
+we are trying to add two integers
+---------------
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> print(add_integer(0, 1))
+1
+
+>>> print(add_integer(1, 2))
+3
+
+>>> print(add_integer(1, -2))
+-1
+
+>>> print(add_integer(1.4, 2.6))
+3
+
+>>> print(add_integer(98, "Battery"))
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+>>> print(add_integer("Jacob", "Hartman"))
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
