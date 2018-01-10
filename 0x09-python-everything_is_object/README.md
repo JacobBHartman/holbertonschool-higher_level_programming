@@ -1,0 +1,1 @@
+Lindsey taught me that the first task checks for READMEs
