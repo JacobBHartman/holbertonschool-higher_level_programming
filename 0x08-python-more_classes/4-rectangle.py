@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """this module contains a class which defines a rectangle"""
 
+
 class Rectangle:
     """this class defines a Rectangle"""
 
@@ -63,4 +64,4 @@ class Rectangle:
         return pic
 
     def __repr__(self):
-        return "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
+        return "Rectangle("+str(self.__width) + ", " + str(self.__height) + ")"

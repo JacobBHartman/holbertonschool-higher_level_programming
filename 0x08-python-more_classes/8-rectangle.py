@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """this module contains a class which defines a rectangle"""
 
+
 class Rectangle:
     """this class defines a Rectangle"""
     number_of_instances = 0
@@ -77,8 +78,9 @@ class Rectangle:
         return pic
 
     def __repr__(self):
-        """create code to reproduce an object and generate output for developer"""
-        return str(self.__class__.__name__) + "(" + str(self.__width) + ", " + str(self.__height) + ")"
+        """create code to reproduce an object and generate output for developer
+        """
+        return "Rectangle(" + str(self.__width) + ", " + str(self.__height)+")"
 
     def __del__(self):
         """delete a rectangle"""
