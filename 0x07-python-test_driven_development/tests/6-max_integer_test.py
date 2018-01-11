@@ -13,11 +13,9 @@ class TestMaxInteger(unittest.TestCase):
     def test_correct(self):
         """Testing correct output"""
         self.assertEqual(max_integer([1, 6, 100, 4, 0, -1, 10]), 100)
-
-    def test_not_list(self):
-        """Testing if theres a list"""
-        with self.assertRaises(TypeError):
-            max_integer("fasfsafs")
+        self.assertEqual(max_integer([1, 2, 3, 4, 5], 5))
+        self.assertEqual(max_integer([1, 2, 5, 3, 4], 5))
+        self.assertEqual(max_integer([5, 1, 2, 3, 4], 5))
 
     def test_list_empty(self):
         """Testing if list is empty"""
@@ -33,13 +31,8 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_non_ints(self):
         """Test when list contains non-ints"""
-        with self.assertRaise(TypeError):
+        with self.assertRaises(TypeError):
             max_integer([1, "hello", 2.3, 45])
-
-    def test_float(self):
-        """Test if theres floats"""
-        with self.assertRaise(TypeError):
-            max_integer([4.0, 3, 2, 1])
 
     def test_only_negatives(self):
         """Test if theres only negatives"""
