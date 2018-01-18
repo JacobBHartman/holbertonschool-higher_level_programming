@@ -6,9 +6,6 @@
 """
 
 
-import json
-
-
 def class_to_json(obj):
     """
         a function described by the module
