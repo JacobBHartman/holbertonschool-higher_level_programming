@@ -1,0 +1,38 @@
+testing file for ``def printed_sorted``
+==============
+
+we are trying to print a copy of a list, but sorted
+--------------
+
+>>> print_sorted = __import__('1-my_list').MyList.print_sorted
+>>> my_list = [1, 4, 2, 3, 5]
+
+Check that the object is the right type
+      >>> print(type(my_list))
+      <class 'list'>
+
+Check that elements are integers
+      >>> new_list = my_list[:]
+      >>> new_list.append(5)
+      >>> new_list.append("Howdy")
+      >>> for i in new_list:
+      ...     if type(i) != int:
+      ...     	  raise TypeError("Items must be integers.")
+      Traceback (most recent call last):
+      ...
+      TypeError: Items must be integers.
+
+Confirm that the list can sort and that it creates a new one
+	>>> list_a = my_list[:]
+	>>> list_a.append(6)
+	>>> list_a.append(4)
+	>>> list_a.append(1)
+	>>> list_a.print_sorted()
+	[1, 1, 2, 3, 4, 4, 5, 6]
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+
+
+	>>> print(my_list.print_sorted())
+	[1, 2, 3, 4, 5]
