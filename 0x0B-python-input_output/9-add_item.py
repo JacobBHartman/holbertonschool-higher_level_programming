@@ -9,6 +9,7 @@ import json
 from sys import argv
 import os.path
 
+
 def save_to_json_file(my_obj, filename):
     """
         this functions writes an Object to a text file using a JSON
@@ -29,11 +30,10 @@ def load_from_json_file(filename):
 if __name__ == "__main__":
     filename = "add_item.json"
 
-    my_list = []
+    my_obj = []
     if os.path.isfile(filename):
-        my_list = load_from_json_file(filename)
-        if len(argv) > 1:
-            for i in range(1, len(argv)):
-                my_list.append(argv[i])
+        my_obj = load_from_json_file(filename)
+    for i in range(1, len(argv)):
+        my_obj.append(argv[i])
 
-    save_to_json_file(my_list, filename)
+    save_to_json_file(my_obj, filename)
