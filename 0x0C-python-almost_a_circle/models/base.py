@@ -7,6 +7,9 @@
 """
 
 
+import json
+
+
 class Base:
     """
         this class acts as the 'base' of all other classes in this project.
@@ -32,3 +35,70 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+            return the JSON string representation of the dictionary
+        """
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+            writes the JSON string representation of the object to a file
+        """
+        filename = str(cls.__name__) + ".json"
+
+        new_list_de_dicts = []
+        for i in list_objs:
+            new_list_de_dicts.append(cls.to_dictionary(i))
+
+        string_de_dicts = cls.to_json_string(new_list_de_dicts)
+
+        with open(filename, mode='w', encoding='utf-8') as json_file:
+            json_file.write(string_de_dicts)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+            return the list of the JSON string representation
+        """
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+            return an instance with all attributes already set
+        """
+        dummy = cls(1, 1, 1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+            return a list of instances
+        """
+        filename = cls.__name__ + ".json"
+        new_list = []
+
+        if filename is None:
+            return []
+
+        # get a string from json file
+        with open(filename, mode='r', encoding='utf-8') as json_file:
+            json_string = json_file.read()
+
+        list_of_dicts = cls.from_json_string(json_string)
+
+        for dct in list_of_dicts:
+            new_list.append(cls.create(**dct))
+
+        return new_list

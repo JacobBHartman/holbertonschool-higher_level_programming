@@ -159,9 +159,6 @@ class Rectangle(Base):
             returns the dictionary representation of a Rectangle:
         '''
         custom_dict = {}
-        attrs_we_want = ['id', 'width', 'height', 'x', 'y']
-        for keys in attrs_we_want:
-            custom_dict[keys] = getattr(self, keys)
-        return custom_dict
-
-    
+        for name in dir(self):
+            if name in self.__dict__:
+                custom_dict[name] = name
