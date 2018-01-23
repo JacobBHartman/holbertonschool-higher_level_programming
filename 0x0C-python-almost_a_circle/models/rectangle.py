@@ -163,5 +163,3 @@ class Rectangle(Base):
         for keys in attrs_we_want:
             custom_dict[keys] = getattr(self, keys)
         return custom_dict
-
-    
