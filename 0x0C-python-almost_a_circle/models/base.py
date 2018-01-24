@@ -55,14 +55,13 @@ class Base:
         list_o_dicts = []
 
         if list_objs is None:
-            with open(filename, mode='w+', encoding='utf-8') as json_file:
-                json_file.write(list_of_dicts)
+            pass
         else:
             for i in list_objs:
-                new_list_de_dicts.append(cls.to_dictionary(i))
-                string_de_dicts = cls.to_json_string(list_o_dicts)
-                with open(filename, mode='w+', encoding='utf-8') as json_file:
-                    json_file.write(string_de_dicts)
+                list_o_dicts += cls.to_dictionary(i)
+        string_de_dicts = cls.to_json_string(list_o_dicts)
+        with open(filename, mode='w+', encoding='utf-8') as json_file:
+            json_file.write(string_de_dicts)
 
     @staticmethod
     def from_json_string(json_string):
