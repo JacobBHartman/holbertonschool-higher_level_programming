@@ -76,7 +76,7 @@ class Base:
         """
             return an instance with all attributes already set
         """
-        dummy = cls(3, 6)
+        dummy = cls(3, 6, 9, 12, 15)
         dummy.update(**dictionary)
         return dummy
 
