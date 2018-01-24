@@ -94,8 +94,6 @@ class Rectangle(Base):
         self.validateSetter("y", value)
         self.__y = value
 
-
-
     @staticmethod
     def validateSetter(attribute, value):
         '''
@@ -106,10 +104,10 @@ class Rectangle(Base):
             raise TypeError("{} must be an integer".format(attribute))
         if attribute == 'width' or attribute == 'height':
             if value <= 0:
-                raise ValueError("{} must be >= 0".format(attribute))
+                raise ValueError("{} must be > 0".format(attribute))
         elif attribute == 'x' or attribute == 'y':
             if value < 0:
-                raise ValueError("{} must be > 0".format(attribute))
+                raise ValueError("{} must be >= 0".format(attribute))
 
     def area(self):
         '''

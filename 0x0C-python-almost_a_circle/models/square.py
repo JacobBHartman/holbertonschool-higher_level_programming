@@ -21,7 +21,6 @@ class Square(Rectangle):
         '''
         super().__init__(size, size, x, y, id)
 
-
     @property
     def size(self):
         '''
@@ -54,7 +53,6 @@ class Square(Rectangle):
         for key in kwargs:
             setattr(self, key, kwargs[key])
 
-
     def __str__(self):
         '''
             overload the __str__ magic method with custom output
@@ -74,4 +72,3 @@ class Square(Rectangle):
         for keys in attrs_we_want:
             custom_dict[keys] = getattr(self, keys)
         return custom_dict
-
