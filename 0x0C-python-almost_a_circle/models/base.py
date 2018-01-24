@@ -76,7 +76,10 @@ class Base:
         """
             return an instance with all attributes already set
         """
-        dummy = cls(3, 6, 9, 12, 15)
+        if "size" is not in dictionary:
+            dummy = cls(2, 4)
+        else:
+            dummy = cls(3)
         dummy.update(**dictionary)
         return dummy
 
