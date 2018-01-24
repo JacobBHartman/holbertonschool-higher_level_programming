@@ -39,6 +39,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         '''
+            update the value
         '''
         if args is not None and args is not []:
             try:
