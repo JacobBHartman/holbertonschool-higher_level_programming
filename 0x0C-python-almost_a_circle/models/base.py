@@ -94,7 +94,7 @@ class Base:
         if filename is None:
             return []
 
-        with open(filename, mode='r', encoding='utf-8') as json_file:
+        with open(filename, mode='r+', encoding='utf-8') as json_file:
             json_string = json_file.read()
 
         list_of_dicts = cls.from_json_string(json_string)
