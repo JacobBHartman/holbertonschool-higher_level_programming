@@ -91,13 +91,12 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         new_list = []
 
-        if filename is None:
+        try:
+            with open(filename, mode='r', encoding='utf-8') as json_file:
+                json_string = json_file.read()
+            list_of_dicts = cls.from_json_string(json_string)
+        except FileNotFoundError:
             return []
-
-        with open(filename, mode='r+', encoding='utf-8') as json_file:
-            json_string = json_file.read()
-
-        list_of_dicts = cls.from_json_string(json_string)
 
         for dct in list_of_dicts:
             new_list.append(cls.create(**dct))
