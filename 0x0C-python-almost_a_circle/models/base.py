@@ -76,7 +76,7 @@ class Base:
         """
             return an instance with all attributes already set
         """
-        if "size" is not in dictionary:
+        if "size" not in dictionary:
             dummy = cls(2, 4)
         else:
             dummy = cls(3)
