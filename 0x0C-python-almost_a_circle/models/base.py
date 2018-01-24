@@ -88,13 +88,12 @@ class Base:
         """
             return a list of instances
         """
-        filename = cls.__name__ + ".json"
+        filename = "{}.json".format(cls.__name__)
         new_list = []
 
         if filename is None:
             return []
 
-        # get a string from json file
         with open(filename, mode='r', encoding='utf-8') as json_file:
             json_string = json_file.read()
 
