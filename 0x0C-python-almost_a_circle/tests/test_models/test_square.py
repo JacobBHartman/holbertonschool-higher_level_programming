@@ -7,6 +7,7 @@ from models.rectangle import Rectangle
 import io
 import sys
 
+
 class TestRectangleClass(unittest.TestCase):
 
     # test initialization, getters and setters
@@ -18,7 +19,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r1.y, 5)
 
     def test_setters(self):
-        r1= Rectangle(10, 11, 4, 5)
+        r1 = Rectangle(10, 11, 4, 5)
         r1.width = 20
         r1.height = 22
         r1.x = 6
@@ -27,7 +28,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r1.height, 22)
         self.assertEqual(r1.x, 6)
         self.assertEqual(r1.y, 9)
-    
+
     # test types of any attribute value
     def test_attribute_is_dict(self):
         with self.assertRaises(TypeError) as err:
@@ -120,12 +121,12 @@ class TestRectangleClass(unittest.TestCase):
         print(r1)
         self.assertEqual(captured_output.getvalue(), expected)
         sys.stdout = sys.__stdout__
-
+    """
     def test_to_dictionary(self):
         r1 = Rectangle(4, 5)
         expected1 = {'width': 4, 'height': 5, 'x': 0, 'y': 0, 'id': 12}
         self.assertEqual(Rectangle.to_dictionary(r1), expected1)
-
+    """
     # test args and kwargs
     def test_kwargs_args_doesnt_exist(self):
         r1 = Rectangle(10, 10, 10, 10)
@@ -140,7 +141,8 @@ class TestRectangleClass(unittest.TestCase):
         r1 = Rectangle(1, 2, 3, 4)
         with self.assertRaises(SyntaxError) as err:
             r1.update(width=5, height=6, x=7, y=8, 9, 10, 11, 12)
-        self.assertEqual(str(err.exception), "non-keyword arg after keyword arg")
+        self.assertEqual(str(err.exception),
+              "non-keyword arg after keyword arg")
     """
 
     def test_args_update_lotsa(self):
@@ -286,4 +288,3 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r1.height, 12)
         self.assertEqual(r1.x, 13)
         self.assertEqual(r1.y, 14)
-
