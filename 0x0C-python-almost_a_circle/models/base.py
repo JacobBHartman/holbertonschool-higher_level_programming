@@ -54,9 +54,9 @@ class Base:
         if list_objs is None:
             with open(filename, mode='w', encoding='utf-8') as json_file:
                 json_file.write([])
-                return
+            return
 
-        filename = str(cls.__name__) + ".json"
+        filename = cls.__name__ + ".json"
 
         new_list_de_dicts = []
         for i in list_objs:
