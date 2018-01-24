@@ -51,12 +51,11 @@ class Base:
         """
             writes the JSON string representation of the object to a file
         """
+        filename = "{}.json".format(cls.__name__)
+
         if list_objs is None:
             with open(filename, mode='w', encoding='utf-8') as json_file:
                 json_file.write([])
-            return
-
-        filename = cls.__name__ + ".json"
 
         new_list_de_dicts = []
         for i in list_objs:
