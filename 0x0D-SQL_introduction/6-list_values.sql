@@ -1,2 +1,2 @@
 -- list all rows of the table
-SHOW COLUMNS FROM first_table;
+DESCRIBE first_table;
