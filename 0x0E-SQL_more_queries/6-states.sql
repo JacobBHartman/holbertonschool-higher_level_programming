@@ -1,0 +1,4 @@
+-- create a table on a MySQL server
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa.states (
+id INT UNIQUE DEFAULT 1 NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(256) NOT NULL);
