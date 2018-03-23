@@ -15,7 +15,8 @@ if __name__ == "__main__":
     query_rows = cur.fetchall()
     length = len(query_rows)
     for row in range(length - 1):
-        print(row[0], end=", ")
-    print(row[0])
+        print(query_rows[row][0], end=", ")
+    row += 1
+    print(query_rows[row][0])
     cur.close()
     conn.close()
