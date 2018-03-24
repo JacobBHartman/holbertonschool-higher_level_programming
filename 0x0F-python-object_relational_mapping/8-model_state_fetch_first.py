@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    list all State objects from the database
+    list one State object from the database
 """
 
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    for state in session.query(State).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
-        break
+    first_object = session.query(State).order_by(State.id).first()
+    print("{}: {}".format(first_object.id, first_object.name))
+
     session.close()
