@@ -22,10 +22,9 @@ if __name__ == "__main__":
     state_we_want = argv[4]
     count = 0
     for state in session.query(State).order_by(State.id).all():
-        if state_we_want in state.name:
-            count += 1
+        if state_we_want is state.name:
+            print(State.id)
+            count = 1
     if count == 0:
         print("Not found")
-    else:
-        print(count)
     session.close()
