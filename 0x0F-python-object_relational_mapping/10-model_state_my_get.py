@@ -20,11 +20,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     state_we_want = argv[4]
-    count = 0
+    flag = 0
     for state in session.query(State).order_by(State.id).all():
-        if state_we_want is state.name:
-            print(State.id)
-            count = 1
-    if count == 0:
+        if state_we_want == state.name:
+            print(state.id)
+            flag += 1
+    if flag == 0:
         print("Not found")
     session.close()
