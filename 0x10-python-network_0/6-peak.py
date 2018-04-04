@@ -8,6 +8,9 @@ def find_peak(list_of_integers):
     """
         this method finds a peak in a list of unsorted integers
     """
+    if list_of_integers is None:
+        return None
+
     length_list = len(list_of_integers)
     if length_list > 2:
         for i in range(1, length_list - 1):
@@ -18,5 +21,3 @@ def find_peak(list_of_integers):
         return max(list_of_integers)
     elif length_list == 1:
         return list_of_integers[0]
-    else:
-        return None
