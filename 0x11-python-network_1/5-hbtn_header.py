@@ -8,9 +8,9 @@
 if __name__ == '__main__':
     import requests
     from sys import argv
-    
+
     url = argv[1]
     variable = 'X-Request-Id'
     content = requests.get(url)
-    
+
     print("{}".format(content.headers[variable]))
